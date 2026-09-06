@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>PharmaStock Dashboard</title>
+
+    <!-- Direct Flask static path + cache buster -->
+    <link rel="stylesheet" href="/static/style.css?v=11">
+</head>
+
+
+<body>
+
+<div class="app-layout">
+
+    <!-- =====================================
+         SIDEBAR
+    ====================================== -->
+
+    <aside class="sidebar">
+
+        <div class="brand">
+
+            <div class="brand-mark">+</div>
+
+            <div>
+                <h2>
+                    Pharma<span>Stock</span>
+                </h2>
+
+                <small>
+                    Inventory System
+                </small>
+            </div>
+
+        </div>
+
+
+        <nav class="nav-menu">
+
+            <a href="#dashboard" class="nav-item active">
+
+                <span class="nav-icon">
+
+                    <svg
+                        width="18"
+                        height="18"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                    >
+                        <rect x="3" y="3" width="7" height="7" rx="1"></rect>
+                        <rect x="14" y="3" width="7" height="7" rx="1"></rect>
+                        <rect x="3" y="14" width="7" height="7" rx="1"></rect>
+                        <rect x="14" y="14" width="7" height="7" rx="1"></rect>
+                    </svg>
+
+                </span>
+
+                Dashboard
+
+            </a>
+
+
+            <a href="#drug-section" class="nav-item">
+
+                <span class="nav-icon">
+
+                    <svg
+                        width="18"
+                        height="18"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                    >
+                        <rect
+                            x="6"
+                            y="2"
+                            width="12"
+                            height="20"
+                            rx="6"
+                            transform="rotate(45 12 12)"
+                        ></rect>
+
+                        <path d="M8.5 15.5L15.5 8.5"></path>
+                    </svg>
+
+                </span>
+
+                Drug Information
+
+            </a>
+
+
+            <a href="#stock-section" class="nav-item">
+
+                <span class="nav-icon">
+
+                    <svg
+                        width="18"
+                        height="18"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                    >
+                        <path d="M4 7L12 3L20 7"></path>
+                        <path d="M4 7V17L12 21L20 17V7"></path>
+                        <path d="M4 7L12 11L20 7"></path>
+                        <path d="M12 11V21"></path>
+                    </svg>
+
+                </span>
+
+                Inventory Check
+
+            </a>
+
+        </nav>
+
+
+        <div class="sidebar-status">
+
+            <span class="status-dot"></span>
+
+            <div>
+                <strong>Microservice</strong>
+                <small>Online</small>
+            </div>
+
+        </div>
+
+    </aside>
+
+
+
+    <!-- =====================================
+         MAIN CONTENT
+    ====================================== -->
+
+    <main class="main-content">
+
+
+        <!-- TOPBAR -->
+
+        <header class="topbar">
+
+            <div>
+
+                <p class="eyebrow">
+                    PHARMACY MANAGEMENT
+                </p>
+
+                <h1>
+                    Dashboard
+                </h1>
+
+            </div>
+
+
+            <div class="topbar-actions">
+
+                <div class="api-badge">
+
+                    <span class="status-dot small"></span>
+
+                    API Connected
+
+                </div>
+
+
+                <div class="profile">
+
+                    <div class="profile-icon">
+
+                        <svg
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                        >
+                            <circle cx="12" cy="8" r="4"></circle>
+                            <path d="M4 21C4 16.6 7.6 13 12 13C16.4 13 20 16.6 20 21"></path>
+                        </svg>
+
+                    </div>
+
+
+                    <div class="profile-text">
+                        <strong>Pharmacy Staff</strong>
+                        <small>Administrator</small>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+
+        <!-- =====================================
+             HERO
+        ====================================== -->
+
+        <section class="hero" id="dashboard">
+
+            <div class="hero-copy">
+
+                <p class="eyebrow teal">
+                    PHARMACY INVENTORY
+                </p>
+
+                <h2>
+                    Better Inventory,
+                    <span>Smarter Decisions.</span>
+                </h2>
+
+                <p class="hero-description">
+                    Retrieve medicine information, monitor stock
+                    levels, and estimate stockout dates through
+                    one simple pharmacy microservice.
+                </p>
+
+                <a href="#stock-section" class="hero-button">
+                    Check Inventory →
+                </a>
+
+            </div>
+
+
+            <div class="hero-art">
+
+                <div class="pill-card">
+
+                    <svg
+                        width="120"
+                        height="120"
+                        viewBox="0 0 120 120"
+                        fill="none"
+                    >
+
+                        <g transform="rotate(-40 60 60)">
+
+                            <rect
+                                x="36"
+                                y="13"
+                                width="48"
+                                height="94"
+                                rx="24"
+                                fill="white"
+                                stroke="#cde5e3"
+                                stroke-width="2"
+                            ></rect>
+
+                            <path
+                                d="M36 60H84V83C84 96.3 73.3 107 60 107C46.7 107 36 96.3 36 83V60Z"
+                                fill="#2db7ae"
+                            ></path>
+
+                            <line
+                                x1="36"
+                                y1="60"
+                                x2="84"
+                                y2="60"
+                                stroke="#13988f"
+                                stroke-width="2"
+                            ></line>
+
+                        </g>
+
+                    </svg>
+
+                </div>
+
+
+                <div class="floating-card float-api">
+
+                    <div class="mini-icon">
+
+                        <svg
+                            width="18"
+                            height="18"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                        >
+                            <path d="M5 12L9 16L19 6"></path>
+                        </svg>
+
+                    </div>
+
+                    <div>
+                        <strong>API Online</strong>
+                        <small>openFDA Connected</small>
+                    </div>
+
+                </div>
+
+
+                <div class="floating-card float-stock">
+
+                    <div class="mini-icon">
+
+                        <svg
+                            width="18"
+                            height="18"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                        >
+                            <path d="M4 7L12 3L20 7"></path>
+                            <path d="M4 7V17L12 21L20 17V7"></path>
+                            <path d="M4 7L12 11L20 7"></path>
+                        </svg>
+
+                    </div>
+
+                    <div>
+                        <strong>Stock Monitoring</strong>
+                        <small>Local Calculation</small>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================
+             FEATURE CARDS
+        ====================================== -->
+
+        <section class="stats-grid">
+
+
+            <div class="stat-card">
+
+                <div class="feature-icon teal-icon">
+
+                    <svg
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                    >
+                        <rect
+                            x="6"
+                            y="2"
+                            width="12"
+                            height="20"
+                            rx="6"
+                            transform="rotate(45 12 12)"
+                        ></rect>
+                        <path d="M8.5 15.5L15.5 8.5"></path>
+                    </svg>
+
+                </div>
+
+                <div>
+                    <small>EXTERNAL SERVICE</small>
+                    <h3>openFDA API</h3>
+                    <p>Drug information lookup</p>
+                </div>
+
+            </div>
+
+
+
+            <div class="stat-card">
+
+                <div class="feature-icon blue-icon">
+
+                    <svg
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                    >
+                        <path d="M5 19V12"></path>
+                        <path d="M12 19V5"></path>
+                        <path d="M19 19V9"></path>
+                    </svg>
+
+                </div>
+
+                <div>
+                    <small>INVENTORY ANALYSIS</small>
+                    <h3>Stock Checker</h3>
+                    <p>Local computation</p>
+                </div>
+
+            </div>
+
+
+
+            <div class="stat-card">
+
+                <div class="feature-icon orange-icon">
+
+                    <svg
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                    >
+                        <rect x="3" y="5" width="18" height="16" rx="2"></rect>
+                        <path d="M8 3V7"></path>
+                        <path d="M16 3V7"></path>
+                        <path d="M3 10H21"></path>
+                    </svg>
+
+                </div>
+
+                <div>
+                    <small>STOCK FORECAST</small>
+                    <h3>Stockout Date</h3>
+                    <p>Estimated automatically</p>
+                </div>
+
+            </div>
+
+
+
+            <div class="stat-card">
+
+                <div class="feature-icon purple-icon">
+
+                    <svg
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                    >
+                        <path d="M12 3L20 7L12 11L4 7L12 3Z"></path>
+                        <path d="M4 7V17L12 21L20 17V7"></path>
+                        <path d="M12 11V21"></path>
+                    </svg>
+
+                </div>
+
+                <div>
+                    <small>DEPLOYMENT</small>
+                    <h3>Dockerized</h3>
+                    <p>Portable environment</p>
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================
+             TOOLS
+        ====================================== -->
+
+        <section class="tools-grid">
+
+
+            <!-- DRUG INFORMATION -->
+
+            <article class="tool-card" id="drug-section">
+
+                <div class="tool-heading">
+
+                    <div class="feature-icon teal-icon">
+
+                        <svg
+                            width="25"
+                            height="25"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                        >
+                            <rect
+                                x="6"
+                                y="2"
+                                width="12"
+                                height="20"
+                                rx="6"
+                                transform="rotate(45 12 12)"
+                            ></rect>
+                            <path d="M8.5 15.5L15.5 8.5"></path>
+                        </svg>
+
+                    </div>
+
+
+                    <div>
+
+                        <p class="eyebrow teal">
+                            EXTERNAL API
+                        </p>
+
+                        <h2>
+                            Drug Information
+                        </h2>
+
+                        <p>
+                            Retrieve basic medicine information
+                            through openFDA.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <label for="drug-name">
+                    Medicine Name
+                </label>
+
+
+                <div class="search-row">
+
+                    <input
+                        type="text"
+                        id="drug-name"
+                        placeholder="Search medicine name..."
+                    >
+
+                    <button
+                        id="drug-search-button"
+                        type="button"
+                    >
+                        Search
+                    </button>
+
+                </div>
+
+
+                <p class="hint">
+                    Try: Metformin, Ibuprofen, Amoxicillin
+                </p>
+
+
+                <div
+                    id="drug-result"
+                    class="result-box hidden"
+                ></div>
+
+            </article>
+
+
+
+            <!-- INVENTORY CHECKER -->
+
+            <article class="tool-card" id="stock-section">
+
+                <div class="tool-heading">
+
+                    <div class="feature-icon blue-icon">
+
+                        <svg
+                            width="25"
+                            height="25"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                        >
+                            <path d="M4 7L12 3L20 7"></path>
+                            <path d="M4 7V17L12 21L20 17V7"></path>
+                            <path d="M4 7L12 11L20 7"></path>
+                        </svg>
+
+                    </div>
+
+
+                    <div>
+
+                        <p class="eyebrow teal">
+                            LOCAL COMPUTATION
+                        </p>
+
+                        <h2>
+                            Inventory Stock Checker
+                        </h2>
+
+                        <p>
+                            Analyze inventory data and determine
+                            reorder status.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="form-grid">
+
+                    <div class="field full">
+
+                        <label for="medicine">
+                            Medicine
+                        </label>
+
+                        <input
+                            type="text"
+                            id="medicine"
+                            placeholder=" e.g., Paracetamol 500mg"
+                        >
+
+                    </div>
+
+
+                    <div class="field">
+
+                        <label for="current-stock">
+                            Current Stock
+                        </label>
+
+                        <input
+                            type="number"
+                            id="current-stock"
+                            placeholder=" e.g., 20"
+                        >
+
+                    </div>
+
+
+                    <div class="field">
+
+                        <label for="average-sales">
+                            Average Daily Sales
+                        </label>
+
+                        <input
+                            type="number"
+                            id="average-sales"
+                            placeholder=" e.g., 5"
+                        >
+
+                    </div>
+
+
+                    <div class="field full">
+
+                        <label for="reorder-level">
+                            Reorder Level
+                        </label>
+
+                        <input
+                            type="number"
+                            id="reorder-level"
+                            placeholder=" e.g., 25"
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <button
+                    id="stock-check-button"
+                    class="analyze-button"
+                    type="button"
+                >
+                    Analyze Inventory →
+                </button>
+
+
+                <div
+                    id="stock-result"
+                    class="result-box hidden"
+                ></div>
+
+            </article>
+
+        </section>
+
+
+
+        <!-- FOOTER -->
+
+        <footer>
+
+            <div>
+
+                <strong>
+                    Pharmacy Inventory Monitoring and
+                    Drug Information Microservice
+                </strong>
+
+                <p>
+                    MSIT 132 – Advanced Programming
+                </p>
+
+            </div>
+
+
+            <span>
+                Flask • openFDA • Docker
+            </span>
+
+        </footer>
+
+    </main>
+
+</div>
+
+
+<script src="/static/script.js?v=10"></script>
+
+</body>
+
+</html>
